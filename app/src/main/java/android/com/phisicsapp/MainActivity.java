@@ -13,6 +13,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int LAYOUT =R.layout.activity_main;
@@ -28,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         initToolbar();
         initTabs();
-
 
 
 
