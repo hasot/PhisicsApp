@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PhisicsApp.iml" filepath="$PROJECT_DIR$/PhisicsApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhysicsApp.iml" filepath="$PROJECT_DIR$/PhysicsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
