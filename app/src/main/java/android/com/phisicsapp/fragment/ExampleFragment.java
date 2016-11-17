@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,12 +31,12 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by root on 29.10.16.
  */
-public class ExampleFragment extends Fragment {
+public class ExampleFragment extends Fragment  {
 
     private static final int LAYOUT = R.layout.fragment_example;
 
-    private ListView listView;
-    private TextView textNewsView;
+    private  ListView listView;
+    private  TextView textNewsView;
 
     public static ExampleFragment getInstance() {
         Bundle args = new Bundle();
@@ -54,12 +56,12 @@ public class ExampleFragment extends Fragment {
         listView =(ListView) view.findViewById(R.id.listView);
         textNewsView = (TextView) view.findViewById(R.id.textNewsView);
 
-        ParsesTitle parsesTitle = new ParsesTitle();
+        final ParsesTitle parsesTitle = new ParsesTitle();
         parsesTitle.execute();
 
         try {
-            HashMap<String, String> hashMap = parsesTitle.get();
-            ArrayList<String> arrayList = new ArrayList<>();
+            final HashMap<String, String> hashMap = parsesTitle.get();
+            final ArrayList<String> arrayList = new ArrayList<>();
             for(Map.Entry entry: hashMap.entrySet()){
                 arrayList.add(entry.getKey().toString());
             }
@@ -67,14 +69,54 @@ public class ExampleFragment extends Fragment {
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, arrayList);
             listView.setAdapter(arrayAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                    ParseText parseText = new ParseText();
+                    parseText.execute(hashMap.get(arrayList.get(position)));
+
+                    try {
+                        listView.setVisibility(View.GONE);
+                        textNewsView.setText(parseText.get());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-
         return view;
+    }
+
+
+
+
+    class ParseText extends AsyncTask<String,Void, String>{
+
+        String str = " ";
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                Document document = Jsoup.connect(params[0]).get();
+                Element element = document.select(".wrapper").first();
+                str = element.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            return str;
+        }
+
 
     }
 
@@ -102,3 +144,4 @@ public class ExampleFragment extends Fragment {
         }
     }
 }
+
