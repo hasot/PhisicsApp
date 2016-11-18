@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -36,7 +37,7 @@ public class ExampleFragment extends Fragment  {
     private static final int LAYOUT = R.layout.fragment_example;
 
     private  ListView listView;
-    private  TextView textNewsView;
+
 
     public static ExampleFragment getInstance() {
         Bundle args = new Bundle();
@@ -54,7 +55,7 @@ public class ExampleFragment extends Fragment  {
         view = inflater.inflate(LAYOUT, container, false);
 
         listView =(ListView) view.findViewById(R.id.listView);
-        textNewsView = (TextView) view.findViewById(R.id.textNewsView);
+
 
         final ParsesTitle parsesTitle = new ParsesTitle();
         parsesTitle.execute();
@@ -72,17 +73,7 @@ public class ExampleFragment extends Fragment  {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    ParseText parseText = new ParseText();
-                    parseText.execute(hashMap.get(arrayList.get(position)));
-
-                    try {
-                        listView.setVisibility(View.GONE);
-                        textNewsView.setText(parseText.get());
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(getActivity(), "Пока ничего не работает", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (InterruptedException e) {
@@ -92,32 +83,6 @@ public class ExampleFragment extends Fragment  {
         }
 
         return view;
-    }
-
-
-
-
-    class ParseText extends AsyncTask<String,Void, String>{
-
-        String str = " ";
-
-        @Override
-        protected String doInBackground(String... params) {
-
-            try {
-                Document document = Jsoup.connect(params[0]).get();
-                Element element = document.select(".wrapper").first();
-                str = element.text();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-            return str;
-        }
-
-
     }
 
     class ParsesTitle extends AsyncTask<Void,Void, HashMap<String, String>>{
