@@ -15,7 +15,7 @@
     <style name="GalaxyZooThemeToolbarDarkOverflow" parent="Theme.AppCompat.NoActionBar">
         <!-- android:textColorPrimary is the  color of the title text
              in the Toolbar, in the Theme.AppCompat theme:  -->
-        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/holo_purple</item>
 
     </style>
 
