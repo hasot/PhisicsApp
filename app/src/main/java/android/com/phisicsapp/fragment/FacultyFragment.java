@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  */
 public class FacultyFragment  extends Fragment {
 
-    private static final int LAYOUT = R.layout.fragment_faculty;
+    private static final int LAYOUT = R.layout.fragment_timetable;
 
 
 
@@ -32,7 +32,6 @@ public class FacultyFragment  extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(LAYOUT, container, false);
-
 
         return view;
     }

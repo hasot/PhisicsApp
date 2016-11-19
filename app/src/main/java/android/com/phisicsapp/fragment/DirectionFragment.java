@@ -13,13 +13,13 @@ import android.view.ViewGroup;
  */
 public class DirectionFragment  extends Fragment {
 
-    private static final int LAYOUT = R.layout.fragment_direction;
+    private static final int LAYOUT = R.layout.fragment_timetable;
 
 
 
-    public static FacultyFragment getInstance() {
+    public static DirectionFragment getInstance() {
         Bundle args = new Bundle();
-        FacultyFragment fragment = new FacultyFragment();
+        DirectionFragment fragment = new DirectionFragment();
         fragment.setArguments(args);
 
         return fragment;
