@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  */
 public class FacultyFragment  extends Fragment {
 
-    private static final int LAYOUT = R.layout.fragment_timetable;
+    private static final int LAYOUT = R.layout.fragment_faculty;
 
 
 

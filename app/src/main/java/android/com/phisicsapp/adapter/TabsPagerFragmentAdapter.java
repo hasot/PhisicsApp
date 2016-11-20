@@ -29,7 +29,7 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
 
         tabs = new String[] {
                 "Новости","Расписание",
-                "О Нас", "Контакты"
+                "О нас", "Контакты"
         };
         draw = new int[] {
                 R.drawable.ic_file_document_box,
