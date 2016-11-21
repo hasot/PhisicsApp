@@ -32,16 +32,16 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by root on 29.10.16.
  */
-public class ExampleFragment extends Fragment  {
+public class NewsFragment extends Fragment  {
 
-    private static final int LAYOUT = R.layout.fragment_example;
+    private static final int LAYOUT = R.layout.fragment_news;
 
     private  ListView listView;
 
 
-    public static ExampleFragment getInstance() {
+    public static NewsFragment getInstance() {
         Bundle args = new Bundle();
-        ExampleFragment fragment = new ExampleFragment();
+        NewsFragment fragment = new NewsFragment();
         fragment.setArguments(args);
 
         return fragment;

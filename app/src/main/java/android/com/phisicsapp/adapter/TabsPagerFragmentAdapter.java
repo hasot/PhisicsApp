@@ -4,9 +4,11 @@ package android.com.phisicsapp.adapter;
 
 import android.com.phisicsapp.R;
 import android.com.phisicsapp.fragment.DirectionFragment;
-import android.com.phisicsapp.fragment.ExampleFragment;
+
 
 import android.com.phisicsapp.fragment.FacultyFragment;
+
+import android.com.phisicsapp.fragment.NewsFragment;
 import android.com.phisicsapp.fragment.TimetableFragment;
 import android.content.Context;
 ;
@@ -53,7 +55,7 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0: return ExampleFragment.getInstance();
+            case 0: return NewsFragment.getInstance();
             case 1: return TimetableFragment.getInstance();
             case 2: return FacultyFragment.getInstance();
             case 3: return DirectionFragment.getInstance();
