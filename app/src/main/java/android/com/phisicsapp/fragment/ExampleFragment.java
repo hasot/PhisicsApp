@@ -95,10 +95,11 @@ public class ExampleFragment extends Fragment  {
         try{
             Document document = Jsoup.connect("http://sfedu.ru/").get();
             Elements elements = document.select(".new");
+
             for(Element element : elements){
                 Element element1 = element.select("a[href]").first();
-                hashMap.put(element.text(), element1.attr("abs:href"));
 
+                hashMap.put(element.select("span[class=name]").text(), element1.attr("abs:href"));
             }
 
         } catch(IOException e){
