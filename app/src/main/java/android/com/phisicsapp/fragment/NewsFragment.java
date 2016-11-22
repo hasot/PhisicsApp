@@ -26,6 +26,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -63,12 +64,13 @@ public class NewsFragment extends Fragment  {
         try {
             final HashMap<String, String> hashMap = parsesTitle.get();
             final ArrayList<String> arrayList = new ArrayList<>();
+
             for(Map.Entry entry: hashMap.entrySet()){
                 arrayList.add(entry.getKey().toString());
             }
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                    android.R.layout.simple_list_item_1, arrayList);
+                    android.R.layout.simple_selectable_list_item, arrayList);
             listView.setAdapter(arrayAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -95,13 +97,13 @@ public class NewsFragment extends Fragment  {
         try{
             Document document = Jsoup.connect("http://sfedu.ru/").get();
             Elements elements = document.select(".new");
+//            Elements images = document.select("img[src~=(?i)\\.(png|jpe?g|gif)]");
 
-            for(Element element : elements){
-                Element element1 = element.select("a[href]").first();
+            for(Element element : elements) {
 
-                hashMap.put(element.select("span[class=name]").text(), element1.attr("abs:href"));
+                Element imgEle = elements.select("a[href]").last();
+                hashMap.put(element.select("span[class=name]").text(), imgEle.attr("abs:href "));
             }
-
         } catch(IOException e){
             e.printStackTrace();
         }
