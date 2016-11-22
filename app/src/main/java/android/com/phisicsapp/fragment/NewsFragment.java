@@ -2,6 +2,8 @@ package android.com.phisicsapp.fragment;
 
 import android.com.phisicsapp.MainActivity;
 import android.com.phisicsapp.R;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -67,7 +69,9 @@ public class NewsFragment extends Fragment  {
 
             for(Map.Entry entry: hashMap.entrySet()){
                 arrayList.add(entry.getKey().toString());
+
             }
+           
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_selectable_list_item, arrayList);
@@ -75,7 +79,15 @@ public class NewsFragment extends Fragment  {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    Toast.makeText(getActivity(), "Пока ничего не работает", Toast.LENGTH_SHORT).show();
+                    Uri webpage = Uri.parse("https://sfedu.ru/");
+                    Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+                    String title = getResources().getString(R.string.chooser_title);
+//                     Create intent to show chooser
+                    Intent chooser = Intent.createChooser(webIntent, title);
+//                     Verify the intent will resolve to at least one activity
+                    startActivity(chooser);
+
+
                 }
             });
         } catch (InterruptedException e) {
@@ -100,9 +112,9 @@ public class NewsFragment extends Fragment  {
 //            Elements images = document.select("img[src~=(?i)\\.(png|jpe?g|gif)]");
 
             for(Element element : elements) {
-
                 Element imgEle = elements.select("a[href]").last();
-                hashMap.put(element.select("span[class=name]").text(), imgEle.attr("abs:href "));
+                String url = element.absUrl("href");
+                hashMap.put(element.select("span[class=name]").text(), url);
             }
         } catch(IOException e){
             e.printStackTrace();

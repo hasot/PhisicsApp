@@ -2,8 +2,7 @@
     <string name="app_name">Физический факультет</string>
     <string name="search_title">Search</string>
 
-    <string name="subject_email">subject_email</string>
-    <string name="send_email">send_email</string>
-    <string name="not_client">not_client</string>
+    <string name="chooser_title">Выбери Браузер</string>
+
 
 </resources>
