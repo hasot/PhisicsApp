@@ -11,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,12 +69,13 @@ public class NewsFragment extends Fragment  {
             final ArrayList<String> arrayList = new ArrayList<>();
 
             for(Map.Entry entry: hashMap.entrySet()){
+                if (entry.getKey() != null)
                 arrayList.add(entry.getKey().toString());
 
             }
            
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
+            final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_selectable_list_item, arrayList);
             listView.setAdapter(arrayAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

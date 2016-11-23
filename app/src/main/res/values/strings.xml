@@ -5,4 +5,9 @@
     <string name="chooser_title">Выбери Браузер</string>
 
 
+    //timeTable text
+
+    <string name="Student">Студент</string>
+    <string name="Teacher">Преподаватель</string>
+
 </resources>
