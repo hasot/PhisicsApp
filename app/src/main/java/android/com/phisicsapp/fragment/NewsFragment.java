@@ -66,22 +66,25 @@ public class NewsFragment extends Fragment  {
 
         try {
             final HashMap<String, String> hashMap = parsesTitle.get();
-            final ArrayList<String> arrayList = new ArrayList<>();
-
+            final ArrayList<String> arrayListNews = new ArrayList<>();
+            final ArrayList<String> arrayListLinkNews = new ArrayList<>();
             for(Map.Entry entry: hashMap.entrySet()){
                 if (entry.getKey() != null)
-                arrayList.add(entry.getKey().toString());
+                arrayListNews.add(entry.getKey().toString());
+                arrayListLinkNews.add(entry.getValue().toString());
 
             }
            
 
-            final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                    android.R.layout.simple_selectable_list_item, arrayList);
-            listView.setAdapter(arrayAdapter);
+            final ArrayAdapter<String> arrayAdapterNews = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_selectable_list_item, arrayListNews);
+            final ArrayAdapter<String> arrayAdapterLink = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_selectable_list_item, arrayListLinkNews);
+            listView.setAdapter(arrayAdapterNews);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    Uri webpage = Uri.parse("https://sfedu.ru/");
+                    Uri webpage = Uri.parse(arrayAdapterLink.getItem(position).toString());
                     Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
                     String title = getResources().getString(R.string.chooser_title);
 //                     Create intent to show chooser
@@ -116,7 +119,7 @@ public class NewsFragment extends Fragment  {
             for(Element element : elements) {
                 Element imgEle = elements.select("a[href]").last();
                 String url = element.absUrl("href");
-                hashMap.put(element.select("span[class=name]").text(), url);
+                hashMap.put(element.select("span[class=name]").text(), element.select("a").attr("abs:href"));
             }
         } catch(IOException e){
             e.printStackTrace();
