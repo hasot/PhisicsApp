@@ -16,7 +16,6 @@ public class TimetableFragment  extends Fragment {
 
     private static final int LAYOUT = R.layout.fragment_timetable;
 
-// tEST REMEMEME
 
     public static TimetableFragment getInstance() {
         Bundle args = new Bundle();
