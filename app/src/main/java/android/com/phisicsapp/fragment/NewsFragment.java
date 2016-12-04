@@ -71,6 +71,8 @@ public class NewsFragment extends Fragment  {
             for(Map.Entry entry: hashMap.entrySet()){
                 if (entry.getKey() != null)
                 arrayListNews.add(entry.getKey().toString());
+
+               // if (entry.getValue().toString().equals("http://sfedu.ru/")) Need test!! 
                 arrayListLinkNews.add(entry.getValue().toString());
 
             }
