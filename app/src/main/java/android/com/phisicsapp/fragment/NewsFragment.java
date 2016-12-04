@@ -114,7 +114,7 @@ public class NewsFragment extends Fragment  {
 
         try{
             Document document = Jsoup.connect("http://sfedu.ru/").get();
-            Elements elements = document.select("div.new");
+            Elements elements = document.select("article.news > div.new");
 
             for(Element element : elements) {
 
