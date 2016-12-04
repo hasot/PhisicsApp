@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -69,11 +70,9 @@ public class NewsFragment extends Fragment  {
             final ArrayList<String> arrayListNews = new ArrayList<>();
             final ArrayList<String> arrayListLinkNews = new ArrayList<>();
             for(Map.Entry entry: hashMap.entrySet()){
-                if (entry.getKey() != null)
-                arrayListNews.add(entry.getKey().toString());
 
-               // if (entry.getValue().toString().equals("http://sfedu.ru/")) Need test!! 
-                arrayListLinkNews.add(entry.getValue().toString());
+                        arrayListNews.add(entry.getKey().toString());
+                        arrayListLinkNews.add(entry.getValue().toString());
 
             }
            
@@ -115,14 +114,13 @@ public class NewsFragment extends Fragment  {
 
         try{
             Document document = Jsoup.connect("http://sfedu.ru/").get();
-            Elements elements = document.select(".new");
-//            Elements images = document.select("img[src~=(?i)\\.(png|jpe?g|gif)]");
+            Elements elements = document.select("div.new");
 
             for(Element element : elements) {
-                Element imgEle = elements.select("a[href]").last();
-                String url = element.absUrl("href");
+
                 hashMap.put(element.select("span[class=name]").text(), element.select("a").attr("abs:href"));
             }
+
         } catch(IOException e){
             e.printStackTrace();
         }
