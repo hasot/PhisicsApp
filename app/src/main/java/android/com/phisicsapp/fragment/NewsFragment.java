@@ -57,6 +57,7 @@ public class NewsFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         view = inflater.inflate(LAYOUT, container, false);
 
         listView =(ListView) view.findViewById(R.id.listView);
@@ -70,13 +71,9 @@ public class NewsFragment extends Fragment  {
             final ArrayList<String> arrayListNews = new ArrayList<>();
             final ArrayList<String> arrayListLinkNews = new ArrayList<>();
             for(Map.Entry entry: hashMap.entrySet()){
-
                         arrayListNews.add(entry.getKey().toString());
                         arrayListLinkNews.add(entry.getValue().toString());
-
             }
-           
-
             final ArrayAdapter<String> arrayAdapterNews = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_selectable_list_item, arrayListNews);
             final ArrayAdapter<String> arrayAdapterLink = new ArrayAdapter<String>(getActivity(),
