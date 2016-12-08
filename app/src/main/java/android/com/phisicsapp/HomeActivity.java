@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
         initToolbar();
         initTabs();
-    
+
     }
 
 
