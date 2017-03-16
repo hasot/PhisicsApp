@@ -3,11 +3,9 @@ package android.com.phisicsapp.adapter;
 
 
 import android.com.phisicsapp.R;
-import android.com.phisicsapp.fragment.DirectionFragment;
 
 
-import android.com.phisicsapp.fragment.FacultyFragment;
-
+import android.com.phisicsapp.fragment.InfoPhyphisicsFragment;
 import android.com.phisicsapp.fragment.NewsFragment;
 import android.com.phisicsapp.fragment.TimetableFragment;
 import android.content.Context;
@@ -31,10 +29,9 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
 
         tabs = new String[] {
                 "Новости","Расписание",
-                "О нас", "Контакты"
+                "О нас"
         };
         draw = new int[] {
-                R.drawable.ic_file_document_box,
                 R.drawable.ic_file_document_box,
                 R.drawable.ic_file_document_box,
                 R.drawable.ic_file_document_box
@@ -57,8 +54,7 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0: return NewsFragment.getInstance();
             case 1: return TimetableFragment.getInstance();
-            case 2: return FacultyFragment.getInstance();
-            case 3: return DirectionFragment.getInstance();
+            case 2: return InfoPhyphisicsFragment.getInstance();
         }
 
         return null;

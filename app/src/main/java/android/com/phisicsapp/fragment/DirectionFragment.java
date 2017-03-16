@@ -9,12 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.Arrays;
-import android.os.Bundle;
 import android.app.Activity;
-import android.app.ListActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -31,9 +26,32 @@ public class DirectionFragment  extends Fragment {
     private static final int LAYOUT = R.layout.fragment_direction;
 
 
-    private String[] listview_names = {"India","Bangladesh", "China","Indonesia" };
 
-    private int[] listview_images   = {R.drawable.as ,R.drawable.aa,R.drawable.ww,R.drawable.dd};
+// ЧТО_ТО С ЭТИМ НАДО СДЕЛАТЬ ЕПТААААААА
+    private String[] listview_names = {"Земляков Вячеслав Викторович \n"+"ИО декана физического факультета \n"+ "E-mail: vvzemlyakov@sfedu.ru ",
+            "Мануилов Михаил Борисович \n"+"3аместитель декана по науке \n"+ "E-mail: m_manuilov@sfedu.ru",
+            "Цветянский Александр Леонидович \n"+"3аместитель декана по соц. вопросам \n"+ "E-mail: altsvetyansky@sfedu.ru",
+            "Фомин Георгий Викторович \n"+"3аместитель декана факультета физики по информатизации \n"+ "E-mail: fomin@rsu.ru ",
+            "Файн Марина Борисовна \n"+"Старший преподаватель \n"+ "E-mail: mbfain@sfedu.ru ",
+            "Коваленко Елена Викторовна \n"+"Cпециалист по учебно-методической работе \n"+ "E-mail: kovalenko1970@sfedu.ru ",
+            "Малышевский Вячеслав Сергеевич \n"+"Профессор кафедры теоретической и вычислительной физики физического факультета \n",
+            "Синявский Геннадий Петрович \n"+"Председатель диссертационного совета \n"+ "E-mail: sinyavsky@sfedu.ru ",
+            "Богатин Александр Соломонович \n"+"3аведующий кафедрой общей физики \n"+ "E-mail: asbbogatin@sfedu.ru",
+            "Кирой Валерий Николаевич \n"+"3аведующий кафедрой биофизики и биокибернетики\n"+ "E-mail: kiroy@sfedu.ru",
+            "Бугаев Лусеген Арменакович \n"+"Член диссертационного совета \n"+ "E-mail:  bugaev@sfedu.ru",
+            "Чеботарев Геннадий Дмитриевич \n"+"Кафедpа квантовой pадиофизики - Профессор \n"+ "E-mail: gdchebotarev@sfedu.ru",
+            "Заргано Геннадий Филиппович \n"+"Ученый секретарь диссертационного совета \n"+ "E-mail: gfzargano@sfedu.ru",
+            "Солдатов Александр Владимирович \n"+"Член диссертационного совета\n"+ "E-mail: soldatov@sfedu.ru ",
+            "Разумная Анна Григорьевна \n"+"ИО заведующей кафедрой нанотехнологий \n"+ "E-mail: agrazumnaya@sfedu.ru"
+
+};
+
+    private int[] listview_images   = {R.drawable.zemlakov,R.drawable.manuilov,
+            R.drawable.cvetanskii, R.drawable.fomin, R.drawable.fain,
+            R.drawable.kovalenko, R.drawable.malishevskii,R.drawable.sinavskii,
+            R.drawable.bogatin,R.drawable.kiroi,R.drawable.bugaev,
+            R.drawable.chebotaev,R.drawable.zorgano,R.drawable.soldatov,
+            R.drawable.razumnai};
 
     private ListView lv;
 
