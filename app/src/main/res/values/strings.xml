@@ -1,12 +1,39 @@
 <resources>
-    <string name="app_name">Физический факультет</string>
+    <string name="app_name">ФизФак</string>
+    <string name="toolbar_name">Физический факультет</string>
     <string name="search_title">Search</string>
 
     <string name="chooser_title">Выбери Браузер</string>
 
 
-    //timeTable text
+    <!--timeTable_text-->
     <string name="Student">Студент</string>
     <string name="Teacher">Teacher</string>
+
+    <!--schedule-->
+    <string name="select_schedule">Выберите расписание</string>
+    <string name="default_select_schedule">Расписание не выбрано</string>
+    <string name="week_type_top">Верхняя неделя</string>
+    <string name="week_type_bottom">Нижняя неделя</string>
+
+    <string-array name="days_of_week">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+    </string-array>
+
+    //NavigationView
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_news">Новости</string>
+    <string name="nav_timetable">Расписание</string>
+    <string name="nav_teacher">Преподаватели</string>
+    <string name="nav_link">Полезные ресурсы</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
